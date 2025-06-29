@@ -1,6 +1,8 @@
 package com.desafio.dev.itau.jr.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,9 +21,10 @@ public class Transacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @NotNull
+    @Min(0)
     private Double valor;
 
-    @Column(nullable = false)
+    @NotNull
     private OffsetDateTime dataHora;
 }
